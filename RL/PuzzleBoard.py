@@ -6,6 +6,10 @@ with open("words_dictionary.json", "r") as read_file:
     words = json.load(read_file)
 
 class PuzzleBoard:
+    # THIS CLASS IS A WORK IN PROGRESS
+    # This board uses a one-hot-encoding for letters and is therefore more complicated
+    # We should master everything on the string-based board before working on this
+
     _letters = list(map(chr, range(65, 91))) + ["E"] #Change to / after testing solving done
 
     def __init__(self, height, width=None):
