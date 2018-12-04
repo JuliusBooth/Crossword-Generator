@@ -1,10 +1,10 @@
 import json
-import numpy as np
 import random
+import csv
 
 
 
-with open("../words_dictionary.json", "r") as read_file:
+with open("../Dictionaries/master_dictionary.json", "r") as read_file:
     words = json.load(read_file)
     # Don't store words in PuzzleBoard or it's too slow using copy.deepcopy
 
@@ -20,14 +20,22 @@ class PuzzleBoard:
                         'K': 5, 'J': 8, 'M': 3, 'L': 1, 'O': 1, 'N': 1, 'Q': 10, 'P': 3, 'S': 1,
                         'R': 1, 'U': 1, 'T': 1, 'W': 4, 'V': 4, 'Y': 4, 'X': 8, 'Z': 10, _BLANK: 0}
 
-    def __init__(self, puzzle):
+    def __init__(self, puzzle=None, file_name=None):
 
-        self.num_rows = len(puzzle)
-        self.num_cols = len(puzzle[0])
-        self.num_letters = self.num_rows*self.num_cols
-        self.board = puzzle
+        if puzzle:
+            self.board = puzzle
+        elif file_name:
+            self.read_from_txt(file_name)
+        else:
+            raise("No starting board supplied")
+
+        self.num_rows = len(self.board)
+        self.num_cols = len(self.board[0])
+        self.num_letters = self.num_rows * self.num_cols
+
         if not self.validate_board():
             raise("Initiating with invalid puzzle!")
+
         self.change_history = []
         self.board_value = self.get_board_value()
 
@@ -42,6 +50,19 @@ class PuzzleBoard:
             board_string += "\n"
         print(self.board)
         return board_string
+
+    def read_from_txt(self, file_name):
+        puzzle = []
+        with open(file_name) as csv_file:
+            csv_reader = csv.reader(csv_file)
+            for line in csv_reader:
+                puzzle.append([letter.upper() for letter in line])
+        self.board = puzzle
+
+    def write_to_txt(self, file_name):
+        with open(file_name, 'w') as csv_file:
+            csv_writer = csv.writer(csv_file)
+            csv_writer.writerows(self.board)
 
     def iterate_board(self):
         # Creates iterator of all board positions
@@ -111,7 +132,7 @@ class PuzzleBoard:
             if num_letters_seen > j:
                 break
 
-        if row_word.lower() not in words:
+        if row_word.upper() not in words:
             return False
 
         col = "".join([self.get_letter(row_num, j) for row_num in range(self.num_rows)])
@@ -123,7 +144,7 @@ class PuzzleBoard:
             if num_letters_seen > i:
                 break
 
-        if col_word.lower() not in words:
+        if col_word.upper() not in words:
             return False
 
         return True
@@ -151,19 +172,6 @@ class PuzzleBoard:
 
 if __name__ == "__main__":
     puzzle = [['-', 'R', 'A', 'D'], ['L', 'A', 'T', 'E'], ['E', 'T', 'O', 'N'], ['D', 'A', 'P', '-']]
-    #puzzle = [['-', 'A', 'A'], ['A', 'A', 'A'], ['I', 'A', '-']]
 
-    #puzzle = [["E", "R"], ["A","T"]]
-    x = PuzzleBoard(puzzle)
-
-    print(x.validate_board())
-
-    x.mutate_one_square()
-
-
-    print(x.solve_puzzle_randomly())
-    print(x)
-    print(x.board_value)
-    print(x.validate_board())
 
 
