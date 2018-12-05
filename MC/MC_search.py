@@ -1,7 +1,11 @@
 from PuzzleBoard import PuzzleBoard
 import copy
 import random
+import os
 
+script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+rel_path = "../Valid_Boards/15x15_v1.txt"
+abs_file_path = os.path.join(script_dir, rel_path)
 
 def monte_carlo_search(root_puzzle, depth=1, breadth=1000, iterations=1000, choice_method="random"):
     # At each iteration we copy the root_puzzle breadth times
@@ -58,7 +62,7 @@ if __name__ == "__main__":
              ['A', 'C', 'O', 'R', 'N'], ['T', 'O', 'P', 'S', '-']]
 
     puzzle = PuzzleBoard(board)
-    puzzle = PuzzleBoard(file_name="../Valid_Boards/15x15_v1.txt")
+    puzzle = PuzzleBoard(file_name=abs_file_path)
 
     print(puzzle)
 
