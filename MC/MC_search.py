@@ -41,11 +41,12 @@ def monte_carlo_search(root_puzzle, depth=1, breadth=1000, iterations=1000, choi
                     if value >= root_puzzle_value:
                         root_puzzle = cloned_puzzle
                         root_puzzle_value = value
+                print(root_puzzle_value)
             else:
                 root_puzzle = random.choice(puzzles)
 
-            print(root_puzzle)
-            print(root_puzzle_value)
+            #print(root_puzzle)
+
     return root_puzzle
 
 def hamming_distance(puzzle1, puzzle2):
