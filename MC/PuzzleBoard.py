@@ -1,10 +1,13 @@
 import json
 import random
 import csv
+import os
 
+script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+rel_path = "../Dictionaries/master_dictionary.json"
+abs_file_path = os.path.join(script_dir, rel_path)
 
-
-with open("../Dictionaries/master_dictionary.json", "r") as read_file:
+with open(abs_file_path, "r") as read_file:
     words = json.load(read_file)
     # Don't store words in PuzzleBoard or it's too slow using copy.deepcopy
 
@@ -17,8 +20,8 @@ class PuzzleBoard:
     _num_letters = len(_letters)-1
 
     _letter_values = {'A': 1, 'C': 3, 'B': 3, 'E': 1, 'D': 2, 'G': 2, 'F': 4, 'I': 1, 'H': 4,
-                        'K': 5, 'J': 8, 'M': 3, 'L': 1, 'O': 1, 'N': 1, 'Q': 10, 'P': 3, 'S': 1,
-                        'R': 1, 'U': 1, 'T': 1, 'W': 4, 'V': 4, 'Y': 4, 'X': 8, 'Z': 10, _BLANK: 0}
+            'K': 5, 'J': 8, 'M': 3, 'L': 1, 'O': 1, 'N': 1, 'Q': 10, 'P': 3, 'S': 1,
+            'R': 1, 'U': 1, 'T': 1, 'W': 4, 'V': 4, 'Y': 4, 'X': 8, 'Z': 10, _BLANK: 0}
 
     def __init__(self, puzzle=None, file_name=None):
 

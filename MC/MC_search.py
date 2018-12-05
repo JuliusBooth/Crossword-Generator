@@ -1,7 +1,11 @@
 from PuzzleBoard import PuzzleBoard
 import copy
 import random
+import os
 
+script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+rel_path = "../Valid_Boards/15x15_v1.txt"
+abs_file_path = os.path.join(script_dir, rel_path)
 
 def monte_carlo_search(root_puzzle, depth=1, breadth=1000, iterations=1000, choice_method="random"):
     # At each iteration we copy the root_puzzle breadth times
@@ -37,12 +41,11 @@ def monte_carlo_search(root_puzzle, depth=1, breadth=1000, iterations=1000, choi
                     if value >= root_puzzle_value:
                         root_puzzle = cloned_puzzle
                         root_puzzle_value = value
-                print(root_puzzle_value)
             else:
                 root_puzzle = random.choice(puzzles)
 
-            #print(root_puzzle)
-
+            print(root_puzzle)
+            print(root_puzzle_value)
     return root_puzzle
 
 def hamming_distance(puzzle1, puzzle2):
@@ -59,13 +62,9 @@ if __name__ == "__main__":
              ['A', 'C', 'O', 'R', 'N'], ['T', 'O', 'P', 'S', '-']]
 
     puzzle = PuzzleBoard(board)
-    puzzle = PuzzleBoard(file_name="../Valid_Boards/4x4_v1.txt")
+    puzzle = PuzzleBoard(file_name=abs_file_path)
 
     print(puzzle)
-    for i in range(19,1000):
-        puzzle = monte_carlo_search(puzzle, depth=4, breadth=1000, iterations=200, choice_method="random")
 
-        board_file_name = '../Valid_Boards/4x4/Board#' + str(i)
-        puzzle.write_to_txt(board_file_name)
-        print(puzzle)
-        print(puzzle.validate_board())
+    puzzle = monte_carlo_search(puzzle, depth=3, choice_method="random")
+    print(puzzle)
