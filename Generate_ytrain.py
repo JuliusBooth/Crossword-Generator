@@ -1,7 +1,6 @@
 import json
 import sys
-sys.path.insert(0, 'RL/')
-sys.path.insert(0, 'MC/')
+import os
 from RLBoard import RLBoard
 import numpy as np
 
@@ -9,9 +8,8 @@ with open("Dictionaries/master_dictionary.json", "r") as read_file:
     words = json.load(read_file)
 
 def load_data():
-
-    num_points = 120
-    num_training_points = 100
+    num_points = 1000
+    num_training_points = num_points - 100
     y_train = np.zeros([num_points, 4, 4, 26])
     x_train = np.zeros([num_points, 4, 4, 26])
     for p in range(num_points):

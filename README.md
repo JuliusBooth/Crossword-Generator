@@ -2,28 +2,28 @@
 A Reinforcement Learning approach to crossword puzzle generation
 
 
-## TODO - November 29
+## TODO - December 5
 
 ### Work so far
 
-We're working on the MC/ (Monte Carlo only) section first before moving on to RL/
+We have a working 4x4 change suggesting Network.
 
-I've written a working version of the PuzzleBoard class and a Monte Carlo search.
-Take a look and familiarize yourselves with the code.
-
-The RL/ version of the PuzzleBoard will be a bit more complicated as all operations will be done on a 3d numpy matrix of 1s and 0s.
+We can use this to guide directed Monte Carlo Tree Search.
 
 ### Next Steps
 
 If someone could add continuous integration testing that'd be really useful as well.
 Use the Unittest python module.
 
-Some of the functions I wrote for MC/PuzzleBoard aren't the best (check_words_ok() I'm looking at you).
+Some of the functions I wrote for PuzzleBoard aren't the best (check_words_ok() I'm looking at you).
 It works, but feel free to make it better.
 
 Make sure you push to branches for now (until we have testing) and have someone check the pull request first before merging.
 
-We need to start working on the RL. Translating the methods of the MC PuzzleBoard to the RL PuzzleBoard is the first step.
+I was having some intense pathing troubles (it was due to Pycharm but I figured that out after) and I got rid of any file structure we once had. Someone could help with that.
+
+We need to change the Model object so that it's easier to use it for predictions. I think that would involve adding a separate method for predictions. That would involve converting all variables to object variables (x to self.x).
+
 
 ### Readings
 
