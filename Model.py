@@ -14,17 +14,17 @@ class Network():
     def __init__(self, restore=False):
         self.restore = restore
 
-
     def run_network(self):
         # Data Dimensions
         img_h = img_w = 4  # Puzzles are images are 4x4x26 images
         img_d = 26
         img_size_flat = img_h * img_w * img_d  # 4x4x26=416, the total number of pixels
         # Load MNIST data
-        x_train, y_train, x_valid, y_valid = load_data()
-        print("Size of:")
-        print("- Training-set:\t\t{}".format(len(y_train)))
-        #print("- Validation-set:\t{}".format(len(y_valid)))
+        if not self.restore:
+            x_train, y_train, x_valid, y_valid = load_data()
+            print("Size of:")
+            print("- Training-set:\t\t{}".format(len(y_train)))
+            #print("- Validation-set:\t{}".format(len(y_valid)))
 
         # Hyper-parameters
         logs_path = "./logs"  # path to the folder that we want to save the logs for Tensorboard
@@ -58,7 +58,7 @@ class Network():
         fc2 = fc_layer(fc1, 400, 'FC2', use_relu=True)
         fc3 = fc_layer(fc2, 400, 'FC3', use_relu=True)
         output = fc_layer(fc3, img_size_flat, 'OUT', use_relu=False)
-        z=tf.shape(self.y)
+        z = tf.shape(self.y)
         output_logits = tf.reshape(output, z)
         '''
         conv1 = conv_layer(x, filter_size1, num_filters1, stride1, name='conv1')
@@ -89,7 +89,7 @@ class Network():
             tf.summary.scalar('accuracy', self.accuracy)
             with tf.variable_scope('Prediction'):
                 # Network predictions
-                self.cls_prediction = tf.nn.softmax(output_logits)
+                self.cls_prediction = output_logits
 
         # Creating the op for initializing all variables
         init = tf.global_variables_initializer()
@@ -151,7 +151,6 @@ class Network():
 
                 saver = tf.train.Saver()
                 saver.save(sess, "saved_model")
-
 
     def predict(self, test_data):
         with tf.Session() as sess:

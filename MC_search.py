@@ -1,15 +1,7 @@
 from PuzzleBoard import PuzzleBoard
 import copy
 import random
-import os
-import sys
 import numpy as np
-
-
-
-import tensorflow as tf
-
-
 
 def monte_carlo_search(root_puzzle, depth=1, breadth=1000, iterations=1000, choice_method="random"):
     # At each iteration we copy the root_puzzle breadth times
@@ -60,6 +52,14 @@ def hamming_distance(puzzle1, puzzle2):
             distance += 1
     return distance
 
+def softmax(x):
+    return np.exp(x)/np.sum(np.exp(x))
+
+def sample(x):
+    flat_x = x.flatten()
+    index = random.choice(list(enumerate(flat_x)))[0]
+    i, j, k = np.unravel_index(index, x.shape)
+    return(i, j, k)
 
 if __name__ == "__main__":
 
@@ -78,4 +78,9 @@ if __name__ == "__main__":
     from Model import Network
     network = Network(restore="saved_model")
     network.run_network()
-    network.predict(x_train)
+    prediction = network.predict(x_train)[0, :, : ,:]
+
+    print(prediction)
+    print()
+    x = softmax(prediction)
+

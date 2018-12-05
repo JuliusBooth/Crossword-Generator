@@ -107,6 +107,17 @@ class PuzzleBoard:
         old_val = PuzzleBoard._letter_values[old_letter]/self.num_letters
         self.board_value += (new_val - old_val)
 
+    def change_square(self, i, j, k):
+        # Change one square of your choice
+        old_letter = self.get_letter(i, j)
+        if old_letter == PuzzleBoard._BLANK:
+            print("Can't change a blank square")
+            return False
+        new_letter = PuzzleBoard._letters[k]
+        self.board[i][j] = new_letter
+        self.update_board_value(new_letter, old_letter)
+        self.change_history.append((i, j))
+
     def mutate_one_square(self):
         # Randomly changes one square. Not allowed to change blank squares
         # This should interact with the change history
