@@ -119,7 +119,7 @@ class PuzzleBoard:
     def check_words_ok(self, i, j):
         # Returns True if the two words that use cell (i, j) are legitimate
         # Returns False otherwise
-        # This could be made more elegant and possibly faster
+        # TODO: This could be made more elegant and possibly faster
         # (doesn't need to check the whole row and column just between BLANKS)
 
         if self.get_letter(i, j) == PuzzleBoard._BLANK:
@@ -172,6 +172,10 @@ class PuzzleBoard:
 
 if __name__ == "__main__":
     puzzle = [['-', 'R', 'A', 'D'], ['L', 'A', 'T', 'E'], ['E', 'T', 'O', 'N'], ['D', 'A', 'P', '-']]
-
+    count=0
+    for word,v in words.items():
+        if len(word) == 5:
+           count+=1
+    print(count)
 
 
