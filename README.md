@@ -22,8 +22,7 @@ Make sure you push to branches for now (until we have testing) and have someone 
 
 I was having some intense pathing troubles (it was due to Pycharm but I figured that out after) and I got rid of any file structure we once had. Someone could help with that.
 
-We need to change the Model object so that it's easier to use it for predictions. I think that would involve adding a separate method for predictions. That would involve converting all variables to object variables (x to self.x).
-
+Using predictions to guide Monte Carlo Search.
 
 ### Readings
 

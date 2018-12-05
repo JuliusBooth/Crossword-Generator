@@ -11,9 +11,9 @@ from Generate_ytrain import load_data
 
 
 class Network():
-    def __init__(self, restore=False, test_data=None):
+    def __init__(self, restore=False):
         self.restore = restore
-        self.test_data = test_data
+
 
     def run_network(self):
         # Data Dimensions
@@ -50,15 +50,15 @@ class Network():
         # Create the network graph
         # Placeholders for inputs (x), outputs(y)
         with tf.name_scope('Input'):
-            x = tf.placeholder(tf.float32, shape=[None, img_h, img_w, img_d], name='X')
-            y = tf.placeholder(tf.float32, shape=[None, img_h, img_w, img_d], name='Y')
+            self.x = tf.placeholder(tf.float32, shape=[None, img_h, img_w, img_d], name='X')
+            self.y = tf.placeholder(tf.float32, shape=[None, img_h, img_w, img_d], name='Y')
 
-        layer_flat = flatten_layer(x)
+        layer_flat = flatten_layer(self.x)
         fc1 = fc_layer(layer_flat, 400, 'FC1', use_relu=True)
         fc2 = fc_layer(fc1, 400, 'FC2', use_relu=True)
         fc3 = fc_layer(fc2, 400, 'FC3', use_relu=True)
         output = fc_layer(fc3, img_size_flat, 'OUT', use_relu=False)
-        z=tf.shape(y)
+        z=tf.shape(self.y)
         output_logits = tf.reshape(output, z)
         '''
         conv1 = conv_layer(x, filter_size1, num_filters1, stride1, name='conv1')
@@ -78,18 +78,18 @@ class Network():
         # Define the loss function, optimizer, and accuracy
         with tf.variable_scope('Train'):
             with tf.variable_scope('Loss'):
-                loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=y, logits=output_logits), name='loss')
-            tf.summary.scalar('loss', loss)
+                self.loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=self.y, logits=output_logits), name='loss')
+            tf.summary.scalar('loss', self.loss)
             with tf.variable_scope('Optimizer'):
-                optimizer = tf.train.AdamOptimizer(learning_rate=lr, name='Adam-op').minimize(loss)
+                self.optimizer = tf.train.AdamOptimizer(learning_rate=lr, name='Adam-op').minimize(self.loss)
             with tf.variable_scope('Accuracy'):
                 #correct_prediction = tf.equal(tf.argmax(output_logits, 1), tf.argmax(y, 1), name='correct_pred')
-                correct_prediction = tf.equal(tf.round(tf.nn.sigmoid(output_logits)), tf.round(y), name='correct_pred')
-                accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32), name='accuracy')
-            tf.summary.scalar('accuracy', accuracy)
+                self.correct_prediction = tf.equal(tf.round(tf.nn.sigmoid(output_logits)), tf.round(self.y), name='correct_pred')
+                self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float32), name='accuracy')
+            tf.summary.scalar('accuracy', self.accuracy)
             with tf.variable_scope('Prediction'):
                 # Network predictions
-                cls_prediction = tf.nn.softmax(output_logits)
+                self.cls_prediction = tf.nn.softmax(output_logits)
 
         # Creating the op for initializing all variables
         init = tf.global_variables_initializer()
@@ -114,12 +114,12 @@ class Network():
                         x_batch, y_batch = get_next_batch(x_train, y_train, start, end)
 
                         # Run optimization op (backprop)
-                        feed_dict_batch = {x: x_batch, y: y_batch}
-                        sess.run(optimizer, feed_dict=feed_dict_batch)
+                        feed_dict_batch = {self.x: x_batch, self.y: y_batch}
+                        sess.run(self.optimizer, feed_dict=feed_dict_batch)
 
                         if iteration % display_freq == 0:
                             # Calculate and display the batch loss and accuracy
-                            loss_batch, acc_batch, summary_tr = sess.run([loss, accuracy, merged],
+                            loss_batch, acc_batch, summary_tr = sess.run([self.loss, self.accuracy, merged],
                                                                          feed_dict=feed_dict_batch)
                             summary_writer.add_summary(summary_tr, global_step)
 
@@ -127,8 +127,8 @@ class Network():
                                   format(iteration, loss_batch, acc_batch))
 
                     # Run validation after every epoch
-                    feed_dict_valid = {x: x_valid, y: y_valid}
-                    loss_valid, acc_valid, summary_val = sess.run([loss, accuracy, merged], feed_dict=feed_dict_valid)
+                    feed_dict_valid = {self.x: x_valid, self.y: y_valid}
+                    loss_valid, acc_valid, summary_val = sess.run([self.loss, self.accuracy, merged], feed_dict=feed_dict_valid)
                     summary_writer.add_summary(summary_val, global_step)
                     print('---------------------------------------------------------')
                     print("Epoch: {0}, validation loss: {1:.2f}, validation accuracy: {2:.01%}".
@@ -137,25 +137,26 @@ class Network():
 
                 # Test the network when training is done
 
-                feed_dict_test = {x: x_valid, y: y_valid}
-                ls_pred = sess.run(cls_prediction, feed_dict=feed_dict_test)
+                feed_dict_test = {self.x: x_valid, self.y: y_valid}
+                ls_pred = sess.run(self.cls_prediction, feed_dict=feed_dict_test)
 
-                loss_test, acc_test = sess.run([loss, accuracy], feed_dict=feed_dict_test)
+                loss_test, acc_test = sess.run([self.loss, self.accuracy], feed_dict=feed_dict_test)
                 print('---------------------------------------------------------')
                 print("Test loss: {0:.2f}, test accuracy: {1:.01%}".format(loss_test, acc_test))
                 print('---------------------------------------------------------')
 
                 # Plot some of the correct and misclassified examples
-                cls_pred = sess.run(cls_prediction, feed_dict=feed_dict_test)
+                cls_pred = sess.run(self.cls_prediction, feed_dict=feed_dict_test)
                 cls_true = np.argmax(y_valid, axis=1)
 
                 saver = tf.train.Saver()
                 saver.save(sess, "saved_model")
 
-        else:
-            with tf.Session() as sess:
-                saver = tf.train.Saver()
-                saver.restore(sess, "saved_model")
-                feed_dict_test = {x: self.test_data, y: self.test_data}
-                prediction = sess.run(cls_prediction, feed_dict=feed_dict_test)
-                print(prediction)
+
+    def predict(self, test_data):
+        with tf.Session() as sess:
+            saver = tf.train.Saver()
+            saver.restore(sess, "saved_model")
+            feed_dict_test = {self.x: test_data, self.y: test_data}
+            prediction = sess.run(self.cls_prediction, feed_dict=feed_dict_test)
+        return prediction

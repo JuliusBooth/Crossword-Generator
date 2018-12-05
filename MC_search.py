@@ -76,5 +76,6 @@ if __name__ == "__main__":
     x_train[0,:,:,:] = x_train_i
 
     from Model import Network
-    network = Network(restore="saved_model", test_data=x_train)
+    network = Network(restore="saved_model")
     network.run_network()
+    network.predict(x_train)
