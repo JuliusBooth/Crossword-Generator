@@ -24,3 +24,8 @@ It works, but feel free to make it better.
 Make sure you push to branches for now (until we have testing) and have someone check the pull request first before merging.
 
 We need to start working on the RL. Translating the methods of the MC PuzzleBoard to the RL PuzzleBoard is the first step.
+
+### Readings
+
+1. http://cs231n.github.io/convolutional-networks/ --talks about ConvNeuralNet for visual recognition 
+2. https://www.tensorflow.org/tutorials/estimators/cnn --TensorFlow Tutorial on Build ConvNeuralNet using Estimators 
