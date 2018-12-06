@@ -2,6 +2,7 @@ import csv
 
 from PIL import Image, ImageDraw, ImageFont
 
+#choose .txt file to read in
 text = "Valid_Boards/15x15_v1.txt"
 #text = "Valid_Boards/4x8_v1.txt"
 #text = "Valid_Boards/4x4_v1.txt"
@@ -13,20 +14,35 @@ with open(text) as csv_file:
     for line in csv_reader:
         puzzle.append(line)
 
-fontsize = 20
+#set image parameters
+fontsize = 18
+x_offset = 4
+y_offset = -1.5
+
 width = len(puzzle[0])*fontsize
 height = len(puzzle)*fontsize
-x_offset = 3
-y_offset = 2
 img = Image.new('RGB', (width,height), color = 'white')
-font = ImageFont.truetype('calibri.ttf', fontsize)
+font = ImageFont.truetype('FRAMDCN.ttf', fontsize)
 d = ImageDraw.Draw(img)
 
+#fill the image with the contents of the .txt file
 yTop = 0
-
 for line in puzzle:
     for i in range(len(line)):
-        d.text((x_offset + i*fontsize, y_offset + yTop), line[i], fill = (0,0,0), font = font)
+        if line[i] == 'I':
+            I_offset = 2
+            d.text((I_offset + x_offset + i*fontsize, y_offset + yTop), line[i], fill = (0,0,0), font = font)
+        elif line[i] == 'T':
+            T_offset = 1
+            d.text((T_offset + x_offset + i*fontsize, y_offset + yTop), line[i], fill = (0,0,0), font = font)
+        elif line[i] == '-':
+            x0 = i*fontsize
+            x1 = (i+1)*fontsize
+            y0 = yTop
+            y1 = yTop + fontsize
+            d.rectangle([x0, y0, x1, y1], fill = (0,0,0))
+        else:
+            d.text((x_offset + i*fontsize, y_offset + yTop), line[i], fill = (0,0,0), font = font)
 
     yTop += fontsize
 
@@ -42,4 +58,4 @@ for j in range(len(puzzle)):
 d.line([(width-1, 0),(width-1, height)], fill = (0,0,0))
 d.line([(0, height-1),(width, height-1)], fill = (0,0,0))
 
-img.save('CrosswordTest3.png')
+img.save('Crossword.png')
