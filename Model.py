@@ -83,7 +83,7 @@ class Network():
             with tf.variable_scope('Optimizer'):
                 self.optimizer = tf.train.AdamOptimizer(learning_rate=lr, name='Adam-op').minimize(self.loss)
             with tf.variable_scope('Accuracy'):
-                #correct_prediction = tf.equal(tf.argmax(output_logits, 1), tf.argmax(y, 1), name='correct_pred')
+
                 self.correct_prediction = tf.equal(tf.round(tf.nn.sigmoid(output_logits)), tf.round(self.y), name='correct_pred')
                 self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float32), name='accuracy')
             tf.summary.scalar('accuracy', self.accuracy)

@@ -2,26 +2,56 @@ from PuzzleBoard import PuzzleBoard
 import copy
 import random
 import numpy as np
+import logging
 
-def monte_carlo_search(root_puzzle, depth=1, breadth=1000, iterations=1000, choice_method="random"):
+logger = logging.getLogger('monte_carlo')
+logger.setLevel(logging.INFO)
+
+def monte_carlo_search(root_puzzle, depth=1, breadth=1000, iterations=1000, change_method="random", choice_method="random"):
     # At each iteration we copy the root_puzzle breadth times
     # We then make depth changes to each puzzle and throw out the invalid puzzles
     # One of the altered puzzles becomes the new root_puzzle
     original_puzzle = root_puzzle
     root_puzzle_value = root_puzzle.get_board_value()
+    lengths = []
+    if change_method == "network":
+        from Model import Network
+        network = Network(restore="saved_model")
+        network.run_network()
+
     for iteration in range(iterations):
+        print(iteration)
         puzzles = []
 
-        for branch in range(breadth):
-            # this creates a deepcopy of the object
-            # (ie. changes to its properties do not affect the original)
-            cloned_puzzle = copy.deepcopy(root_puzzle)
+        if not root_puzzle.validate_board():
+            raise("Root Puzzle Invalid")
+
+        if change_method == "network":
+            cloned_puzzles = [copy.deepcopy(root_puzzle) for i in range(breadth)]
 
             for step in range(depth):
-                cloned_puzzle.mutate_one_square()
-            if cloned_puzzle.is_puzzle_solved():
-                puzzles.append(cloned_puzzle)
+                x_train = np.array([cloned_puzzle.get_matrix()[:, :, :26] for cloned_puzzle in cloned_puzzles])
+                output = network.predict(x_train)
+                for num, prediction in enumerate(output):
 
+                    probabilities = softmax(prediction)
+                    i, j, k = sample(probabilities)
+
+                    cloned_puzzles[num].change_square(i, j, k)
+            puzzles = [cloned_puzzle for cloned_puzzle in cloned_puzzles if cloned_puzzle.is_puzzle_solved()]
+
+        else:
+            for branch in range(breadth):
+                # this creates a deepcopy of the object
+                # (ie. changes to its properties do not affect the original)
+                cloned_puzzle = copy.deepcopy(root_puzzle)
+                for step in range(depth):
+                    cloned_puzzle.mutate_one_square()
+
+                if cloned_puzzle.is_puzzle_solved():
+                    puzzles.append(cloned_puzzle)
+        lengths.append(len(puzzles))
+        #print(len(puzzles))
         if len(puzzles) == 0:
             continue
         else:
@@ -41,9 +71,10 @@ def monte_carlo_search(root_puzzle, depth=1, breadth=1000, iterations=1000, choi
             else:
                 root_puzzle = random.choice(puzzles)
 
-            #print(root_puzzle)
-
+            print(root_puzzle)
+    print(sum(lengths)/iterations)
     return root_puzzle
+
 
 def hamming_distance(puzzle1, puzzle2):
     distance = 0
@@ -52,8 +83,10 @@ def hamming_distance(puzzle1, puzzle2):
             distance += 1
     return distance
 
+
 def softmax(x):
     return np.exp(x)/np.sum(np.exp(x))
+
 
 def sample(x):
     flat_x = x.flatten()
@@ -65,22 +98,12 @@ if __name__ == "__main__":
 
     board = [['-', 'G', 'R', 'O', 'S'], ['B', 'R', 'E', 'D', 'E'], ['R', 'E', 'M', 'O', 'P'],
              ['A', 'C', 'O', 'R', 'N'], ['T', 'O', 'P', 'S', '-']]
+    board = [['S', 'P', 'A', 'E', 'R', '-', 'C', 'A', 'M', 'E', 'L', '-', 'U', 'R', 'U'], ['E', 'A', 'R', 'N', 'A', '-', 'I', 'N', 'A', 'G', 'E', '-', 'N', 'I', 'H'], ['C', 'H', 'I', 'C', 'K', 'E', 'N', 'K', 'I', 'E', 'V', '-', 'S', 'S', 'L'], ['S', 'O', 'D', 'O', '-', 'V', 'E', 'E', 'N', '-', 'E', 'A', 'U', 'D', 'E'], ['-', '-', '-', 'R', 'O', 'A', 'M', '-', 'S', 'T', 'E', 'R', 'N', '-', '-'], ['-', 'V', 'I', 'E', 'N', 'N', 'A', 'S', 'A', 'U', 'S', 'A', 'G', 'E', 'S'], ['S', 'E', 'N', 'S', 'O', '-', '-', 'C', 'I', 'D', '-', 'B', 'H', 'A', 'T'], ['T', 'R', 'F', '-', 'S', 'A', 'R', 'A', 'L', 'E', 'E', '-', 'E', 'T', 'R'], ['A', 'V', 'I', 'M', '-', 'C', 'E', 'L', '-', '-', 'D', 'A', 'R', 'I', 'N'], ['B', 'E', 'E', 'F', 'W', 'E', 'L', 'L', 'I', 'N', 'G', 'T', 'O', 'N', '-'], ['-', '-', 'L', 'A', 'H', 'D', 'I', '-', 'N', 'E', 'E', 'L', '-', '-', '-'], ['H', 'Y', 'D', 'R', 'O', '-', 'A', 'U', 'T', 'O', '-', 'A', 'G', 'L', 'I'], ['O', 'R', 'F', '-', 'L', 'O', 'N', 'D', 'O', 'N', 'B', 'R', 'O', 'I', 'L'], ['T', 'H', 'L', '-', 'E', 'P', 'C', 'O', 'T', '-', 'A', 'G', 'L', 'E', 'E'], ['H', 'O', 'Y', '-', 'S', 'E', 'E', 'N', 'O', '-', 'E', 'E', 'I', 'N', 'S']]
 
     puzzle = PuzzleBoard(board)
 
-    puzzle = PuzzleBoard(file_name="Valid_Boards/4x4_v1.txt")
-    #puzzle = monte_carlo_search(puzzle, depth=3, choice_method="random")
+    #puzzle = PuzzleBoard(file_name="Valid_Boards/15x15_v1.txt")
+    puzzle = monte_carlo_search(puzzle, depth=5, iterations=3000, breadth=1000, choice_method="random", change_method="random")
     print(puzzle)
-    x_train = np.zeros([1, 4, 4, 26])
-    x_train_i = puzzle.get_matrix()[:, :, :26]
-    x_train[0,:,:,:] = x_train_i
 
-    from Model import Network
-    network = Network(restore="saved_model")
-    network.run_network()
-    prediction = network.predict(x_train)[0, :, : ,:]
-
-    print(prediction)
-    print()
-    x = softmax(prediction)
 

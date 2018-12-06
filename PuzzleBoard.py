@@ -195,8 +195,14 @@ if __name__ == "__main__":
     puzzle = [['-', 'R', 'A', 'D'], ['L', 'A', 'T', 'E'], ['E', 'T', 'O', 'N'], ['D', 'A', 'P', '-']]
     count=0
     for word,v in words.items():
-        if len(word) == 5:
+        if len(word) == 6:
            count+=1
-    print(count)
+    W = 44892
+    n = 6
+    P = 26**(n**2)
+    V = W**(2*n)/(26**(n**2))
+    D = V/P
+    print('%e' % P)
+    print('%e' % V, D)
 
 
