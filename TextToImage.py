@@ -3,7 +3,7 @@ import csv
 from PIL import Image, ImageDraw, ImageFont
 
 #choose .txt file to read in
-text = "Valid_Boards/15x15_v1.txt"
+text = "Valid_Boards/15x15_v2.txt"
 #text = "Valid_Boards/4x8_v1.txt"
 #text = "Valid_Boards/4x4_v1.txt"
 
@@ -58,4 +58,4 @@ for j in range(len(puzzle)):
 d.line([(width-1, 0),(width-1, height)], fill = (0,0,0))
 d.line([(0, height-1),(width, height-1)], fill = (0,0,0))
 
-img.save('Crossword.png')
+img.save('CrosswordTest4.png')

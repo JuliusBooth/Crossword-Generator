@@ -1,40 +1,50 @@
-import itertools
 import json
 
 def hamdist(str1, str2):
-    diffs = 0
-    for ch1, ch2 in zip(str1, str2):
-            if ch1 != ch2:
-                    diffs += 1
-    return diffs
+    dist = 0
+    word_length = len(str1)
+    for i in range(word_length):
+        if str1[i] != str2[i]:
+            dist += 1
+    return dist
 
-def hamdistOnPairs(json):
-    diff = {}
-    for pair in itertools.product(json, repeat=2):
-        key = pair
-        diff.update({key: hamdist(pair[0], pair[1])})
-    return diff
 
-#load json into dictionary
-dictPath = 'Dictionaries/master_dictionary.json'
-with open(dictPath) as json_data:
-    d = json.load(json_data)
+def maxMinHammingDistance():
+    # load json into dictionary
+    dictPath = 'Dictionaries/master_dictionary.json'
+    with open(dictPath) as json_data:
+        d = json.load(json_data)
+    # group words by equal length
+    word_lists = [[] for i in range(20)]
+    for word in d:
+        if len(word) <= 20:
+            word_lists[len(word) - 1].append(word)
 
-#find maximum length word
-mx = 0
-for x in d:
-    if mx < len(x):
-        mx = len(x)
+    results = {}
+    start=12
+    for word_length in range(start,start+1):
+        word_list = word_lists[word_length-1]
 
-#group words by equal length
-words = [[] for i in range(mx)]
-for x in d:
-    words[len(x)-1].append(x)
+        max_min_distance = 0
+        champ_word = ""
+        # go through each pair of words with same length
+        for i in range(len(word_list)):
+            min_distance = word_length+1
 
-#go through each pair of words with same length
-for i in range(4, 5):
-    for j in range(len(words[i])):
-        for k in range(j+1, len(words[i])):
-            hmd = hamdist(words[i][j], words[i][k])
+            for j in range(len(word_list)):
+                if i == j:
+                    continue
+                distance = hamdist(word_list[i], word_list[j])
 
-print(hmd)
+                if distance < min_distance:
+                    min_distance = distance
+
+            if min_distance > max_min_distance:
+                max_min_distance = min_distance
+                champ_word = word_list[i]
+        results[word_length] = (max_min_distance, champ_word)
+        print(word_length, max_min_distance, champ_word)
+
+maxMinHammingDistance()
+
+
