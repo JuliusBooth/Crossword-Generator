@@ -2,23 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4bd5259-fd2b-4c2e-8a30-98c54755f3a8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Valid_Boards/15x15_v1_target.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Valid_Boards/4x4_v2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Valid_Boards/4x7_v1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Valid_Boards/5x5_v1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Valid_Boards/6x6_v1.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Crossword.png" afterPath="$PROJECT_DIR$/Puzzle_Images/Crossword.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CrosswordTest1.png" afterPath="$PROJECT_DIR$/Puzzle_Images/CrosswordTest1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CrosswordTest2.png" afterPath="$PROJECT_DIR$/Puzzle_Images/CrosswordTest2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CrosswordTest3.png" afterPath="$PROJECT_DIR$/Puzzle_Images/CrosswordTest3.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CrosswordTest4.png" afterPath="$PROJECT_DIR$/Puzzle_Images/CrosswordTest4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Misc_Functions/GetWords.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HammingDistance.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/RLBoard.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/TextToImage.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Generate_Boards.py" afterPath="$PROJECT_DIR$/Generate_Boards.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HammingDistance.py" afterPath="$PROJECT_DIR$/HammingDistance.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MC_search.py" afterPath="$PROJECT_DIR$/MC_search.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model.py" afterPath="$PROJECT_DIR$/Model.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PuzzleBoard.py" afterPath="$PROJECT_DIR$/PuzzleBoard.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TextToImage.py" afterPath="$PROJECT_DIR$/TextToImage.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Generate_ytrain.py" afterPath="$PROJECT_DIR$/Generate_ytrain.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Valid_Boards/15x15_v1_target.txt" afterPath="$PROJECT_DIR$/Valid_Boards/15x15_v1_target.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,7 +23,7 @@
       <file leaf-file-name="MC_search.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MC_search.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1890">
+            <state relative-caret-position="655">
               <caret line="130" column="68" lean-forward="false" selection-start-line="130" selection-start-column="68" selection-end-line="130" selection-end-column="68" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -45,8 +35,8 @@
       <file leaf-file-name="PuzzleBoard.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PuzzleBoard.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2940">
-              <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+            <state relative-caret-position="319">
+              <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="205" selection-end-column="28" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -67,8 +57,38 @@
       <file leaf-file-name="15x15_v1_target.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Valid_Boards/15x15_v1_target.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+            <state relative-caret-position="180">
+              <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetWords.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Misc_Functions/GetWords.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ops.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ops.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-193">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -96,6 +116,9 @@
       <find>y_trai</find>
       <find>168</find>
       <find>text</find>
+      <find>R</find>
+      <find>RL</find>
+      <find>RLB</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -113,7 +136,6 @@
         <option value="$PROJECT_DIR$/RL/RLBoard.py" />
         <option value="$PROJECT_DIR$/MC/PuzzleBoard.py" />
         <option value="$PROJECT_DIR$/MC/MC_search.py" />
-        <option value="$PROJECT_DIR$/Generate_ytrain.py" />
         <option value="$PROJECT_DIR$/RLBoard.py" />
         <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -132,13 +154,15 @@
         <option value="$PROJECT_DIR$/TextToImage.py" />
         <option value="$PROJECT_DIR$/PuzzleBoard.py" />
         <option value="$PROJECT_DIR$/HammingDistance.py" />
+        <option value="$PROJECT_DIR$/Generate_ytrain.py" />
+        <option value="$PROJECT_DIR$/Misc_Functions/GetWords.py" />
         <option value="$PROJECT_DIR$/Valid_Boards/15x15_v1_target.txt" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1331" />
-    <option name="y" value="-791" />
+    <option name="x" value="1303" />
+    <option name="y" value="-849" />
     <option name="width" value="1869" />
     <option name="height" value="857" />
   </component>
@@ -194,21 +218,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Puzzle_Images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RLXwords" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RLXwords" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dictionaries" />
+              <option name="myItemId" value="Misc_Functions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -243,25 +253,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.HammingDistance">
-    <configuration default="false" name="MC_search" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="RLXwords" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MC_search.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.GetWords">
     <configuration default="false" name="PuzzleBoard" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -329,6 +321,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="RLXwords" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Generate_Boards.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="GetWords" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Misc_Functions" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="RLXwords" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Misc_Functions/GetWords.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -418,19 +428,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.Unnamed" />
-      <item index="1" class="java.lang.String" itemvalue="Python.MC_search" />
-      <item index="2" class="java.lang.String" itemvalue="Python.PuzzleBoard" />
-      <item index="3" class="java.lang.String" itemvalue="Python.TextToImage" />
-      <item index="4" class="java.lang.String" itemvalue="Python.HammingDistance" />
-      <item index="5" class="java.lang.String" itemvalue="Python.Generate_Boards" />
+      <item index="1" class="java.lang.String" itemvalue="Python.PuzzleBoard" />
+      <item index="2" class="java.lang.String" itemvalue="Python.TextToImage" />
+      <item index="3" class="java.lang.String" itemvalue="Python.HammingDistance" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Generate_Boards" />
+      <item index="5" class="java.lang.String" itemvalue="Python.GetWords" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.HammingDistance" />
-        <item index="1" class="java.lang.String" itemvalue="Python.TextToImage" />
-        <item index="2" class="java.lang.String" itemvalue="Python.PuzzleBoard" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Generate_Boards" />
-        <item index="4" class="java.lang.String" itemvalue="Python.MC_search" />
+        <item index="0" class="java.lang.String" itemvalue="Python.GetWords" />
+        <item index="1" class="java.lang.String" itemvalue="Python.HammingDistance" />
+        <item index="2" class="java.lang.String" itemvalue="Python.TextToImage" />
+        <item index="3" class="java.lang.String" itemvalue="Python.PuzzleBoard" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Generate_Boards" />
       </list>
     </recent_temporary>
   </component>
@@ -448,13 +458,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1331" y="-791" width="1869" height="857" extended-state="0" />
+    <frame x="1303" y="-849" width="1869" height="857" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26270732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24871135" sideWeight="0.5022779" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35152283" sideWeight="0.4977221" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35152283" sideWeight="0.4977221" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -467,7 +478,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -499,33 +509,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Valid_Boards/4x4/Board#1017">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Puzzle_Images/Crossword.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Puzzle_Images/4x4_seed.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Puzzle_Images/4x4_generated1017.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Puzzle_Images/4x4_generated1016.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Valid_Boards/4x4/Board#1016">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -796,48 +779,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TextToImage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="59" column="39" lean-forward="false" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
           <caret line="91" column="63" lean-forward="false" selection-start-line="91" selection-start-column="63" selection-end-line="91" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MC_search.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1890">
-          <caret line="130" column="68" lean-forward="false" selection-start-line="130" selection-start-column="68" selection-end-line="130" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PuzzleBoard.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2940">
-          <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HammingDistance.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="49" column="44" lean-forward="false" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -850,10 +795,88 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/HammingDistance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="49" column="44" lean-forward="false" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-193">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TextToImage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="59" column="39" lean-forward="false" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RLBoard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Generate_ytrain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MC_search.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="130" column="68" lean-forward="false" selection-start-line="130" selection-start-column="68" selection-end-line="130" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PuzzleBoard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="205" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Misc_Functions/GetWords.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Valid_Boards/15x15_v1_target.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        <state relative-caret-position="180">
+          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
           <folding />
         </state>
       </provider>

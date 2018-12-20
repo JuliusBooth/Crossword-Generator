@@ -1,7 +1,7 @@
 import json
 import sys
 import os
-from RLBoard import RLBoard
+from PuzzleBoard import PuzzleBoard
 import numpy as np
 
 with open("Dictionaries/master_dictionary.json", "r") as read_file:
@@ -13,7 +13,7 @@ def load_data():
     y_train = np.zeros([num_points, 4, 4, 26])
     x_train = np.zeros([num_points, 4, 4, 26])
     for p in range(num_points):
-        puzzle = RLBoard(file_name="Valid_Boards/4x4/Board#" + str(p))
+        puzzle = PuzzleBoard(file_name="Valid_Boards/4x4/Board#" + str(p))
         for i, j in puzzle.iterate_board():
             original_letter = puzzle.board[i][j]
             for z, letter in enumerate(list(map(chr, range(65, 91)))):
