@@ -4,9 +4,11 @@ import csv
 import numpy as np
 
 
-
-with open("Dictionaries/master_dictionary.json", "r") as read_file:
+#DICTIONARY = 'Dictionaries/words_dictionary.json'
+DICTIONARY = "Dictionaries/master_dictionary.json"
+with open(DICTIONARY, "r") as read_file:
     words = json.load(read_file)
+    words = dict([(k.upper(),v) for (k,v) in words.items()])
     # Don't store words in PuzzleBoard or it's too slow using copy.deepcopy
 
 
@@ -194,15 +196,29 @@ class PuzzleBoard:
 if __name__ == "__main__":
     puzzle = [['-', 'R', 'A', 'D'], ['L', 'A', 'T', 'E'], ['E', 'T', 'O', 'N'], ['D', 'A', 'P', '-']]
     count=0
+
+
+    lengths = [0 for i in range(20)]
+
     for word,v in words.items():
-        if len(word) == 6:
-           count+=1
-    W = 44892
-    n = 6
-    P = 26**(n**2)
-    V = W**(2*n)/(26**(n**2))
-    D = V/P
-    print('%e' % P)
-    print('%e' % V, D)
+        length = len(word)
+        if length==20:continue
+        lengths[length-1]+=1
+
+    for i in range(20):
+
+        W = lengths[i]
+        n = i+1
+        P = 26**(n**2)
+        V = W**(2*n)/(26**(n**2))
+        try:
+            D = V/P
+            print('n = %d' % n)
+            print('P = %e' % P)
+            print('V = %e' % V)
+            print('V/P = %e' % D)
+            print("\n")
+        except:
+            print(i+1)
 
 

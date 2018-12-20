@@ -89,7 +89,7 @@ class Network():
             tf.summary.scalar('accuracy', self.accuracy)
             with tf.variable_scope('Prediction'):
                 # Network predictions
-                self.cls_prediction = output_logits
+                self.cls_prediction = tf.sigmoid(output_logits)
 
         # Creating the op for initializing all variables
         init = tf.global_variables_initializer()

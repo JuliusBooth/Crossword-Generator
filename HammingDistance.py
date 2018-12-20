@@ -45,6 +45,26 @@ def maxMinHammingDistance():
         results[word_length] = (max_min_distance, champ_word)
         print(word_length, max_min_distance, champ_word)
 
-maxMinHammingDistance()
+def closestWord(myword):
+    len_myword = len(myword)
+    dictPath = 'Dictionaries/master_dictionary.json'
+    with open(dictPath) as json_data:
+        d = json.load(json_data)
+    min_distance = len_myword+1
+    champ = ""
+    for word in d:
+        if len(word) == len_myword:
+            dist = hamdist(myword,word)
+            if dist == 0:
+                continue
+            if dist < min_distance:
+                min_distance =dist
+                champ = word
+    print(champ, min_distance)
+
+myword = "VIENNASAUSAGES"
+closestWord(myword)
+
+#maxMinHammingDistance()
 
 
