@@ -57,8 +57,8 @@ def save_image(input_file, output_file):
     img.save(output_file)
 
 #choose .txt file to read in
-input_file = "Valid_Boards/4x4/Board#1012"
+input_file = "../Valid_Boards/15x15_v1.txt"
 
-output_file = "Puzzle_Images/4x4_generated1012.png"
+output_file = "../Puzzle_Images/15x15.png"
 save_image(input_file,output_file)
 

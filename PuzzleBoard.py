@@ -16,21 +16,25 @@ class PuzzleBoard:
 
     _BLANK = "-"
     _letters = list(map(chr, range(65, 91))) + [_BLANK]
-    #_letters = ["A","E","I","O","U","C","D","L","N","P","R","S","T","B",BLANK]
     _num_letters = len(_letters)-1
 
     _letter_values = {'A': 1, 'C': 3, 'B': 3, 'E': 1, 'D': 2, 'G': 2, 'F': 4, 'I': 1, 'H': 4,
-            'K': 5, 'J': 8, 'M': 3, 'L': 1, 'O': 1, 'N': 1, 'Q': 10, 'P': 3, 'S': 1,
-            'R': 1, 'U': 1, 'T': 1, 'W': 4, 'V': 4, 'Y': 4, 'X': 8, 'Z': 10, _BLANK: 0}
+                        'K': 5, 'J': 8, 'M': 3, 'L': 1, 'O': 1, 'N': 1, 'Q': 10, 'P': 3, 'S': 1,
+                            'R': 1, 'U': 1, 'T': 1, 'W': 4, 'V': 4, 'Y': 4, 'X': 8, 'Z': 10, _BLANK: 0}
 
-    def __init__(self, puzzle=None, file_name=None):
+    def __init__(self, puzzle=None, file_name=None, target_file_name=None):
 
         if puzzle:
             self.board = puzzle
         elif file_name:
-            self.read_from_txt(file_name)
+            self.board = self.read_from_txt(file_name)
         else:
             raise("No starting board supplied")
+
+        if target_file_name:
+            self.target_board = self.read_from_txt(target_file_name)
+        else:
+            self.target_board = None
 
         self.num_rows = len(self.board)
         self.num_cols = len(self.board[0])
@@ -61,7 +65,7 @@ class PuzzleBoard:
             csv_reader = csv.reader(csv_file)
             for line in csv_reader:
                 puzzle.append([letter.upper() for letter in line])
-        self.board = puzzle
+        return puzzle
 
     def write_to_txt(self, file_name):
         with open(file_name, 'w') as csv_file:
@@ -110,6 +114,7 @@ class PuzzleBoard:
         self.board_value += (new_val - old_val)
 
     def change_square(self, i, j, k):
+        #MIGHT NEED TO ADD TARGET_FILE STUFF
         # Change one square of your choice
         old_letter = self.get_letter(i, j)
         if old_letter == PuzzleBoard._BLANK:
@@ -130,6 +135,9 @@ class PuzzleBoard:
             old_letter = self.get_letter(square_row, square_column)
             if old_letter == PuzzleBoard._BLANK:
                 continue
+            if self.target_board:
+                if old_letter == self.target_board[square_row][square_column]:
+                    continue
             new_letter = PuzzleBoard._letters[random.randint(0, PuzzleBoard._num_letters-1)]
             self.board[square_row][square_column] = new_letter
             self.update_board_value(new_letter, old_letter)
@@ -138,6 +146,23 @@ class PuzzleBoard:
 
     def get_letter(self, row, col):
         return self.board[row][col]
+
+    def remove_constraint(self, i, j, direction):
+        if direction == "horizontal":
+            if j < self.num_cols - 1:
+                if self.target_board[i][j+1] != PuzzleBoard._BLANK:
+                    return True
+            else:
+                if self.target_board[i][j-1] != PuzzleBoard._BLANK:
+                    return True
+        else:
+            if i < self.num_rows - 1:
+                if self.target_board[i+1][j] != PuzzleBoard._BLANK:
+                    return True
+            else:
+                if self.target_board[i-1][j] != PuzzleBoard._BLANK:
+                    return True
+        return False
 
     def check_words_ok(self, i, j):
         # Returns True if the two words that use cell (i, j) are legitimate
@@ -172,53 +197,82 @@ class PuzzleBoard:
 
         return True
 
+    def check_words_ok2(self, i, j):
+        # Returns True if the two words that use cell (i, j) are legitimate
+        # Returns False otherwise
+        # TODO: This could be made more elegant and possibly faster
+        # (doesn't need to check the whole row and column just between BLANKS)
+
+        if self.get_letter(i, j) == PuzzleBoard._BLANK:
+            return True
+
+        # Check the row
+        row_indices = []
+        start = 0
+        row_letters = [self.get_letter(i, col_num) for col_num in range(self.num_cols)]
+        for index, letter in enumerate(row_letters):
+            if letter == PuzzleBoard._BLANK:
+                word = row_letters[start:index]
+                if word != PuzzleBoard._BLANK and len(word) > 0:
+                    row_indices.append((start, index))
+                start = index + 1
+        if row_letters[-1] != PuzzleBoard._BLANK:
+            row_indices.append((start, index+1))
+
+        if self.target_board:
+            target_row = [self.target_board[i][col_num] for col_num in range(self.num_cols)]
+
+        for start, end in row_indices:
+            word = "".join(row_letters[start:end])
+            if word.upper() not in words:
+                if self.target_board:
+                    target_word = "".join(target_row[start:end])
+                    if PuzzleBoard._BLANK not in target_word:
+                        continue
+                return False
+
+        # Check the column
+        col_indices = []
+        start = 0
+        col_letters = [self.get_letter(row_num, j) for row_num in range(self.num_rows)]
+        for index, letter in enumerate(col_letters):
+            if letter == PuzzleBoard._BLANK:
+                word = col_letters[start:index]
+                if word != PuzzleBoard._BLANK and len(word) > 0:
+                    col_indices.append((start, index))
+                start = index + 1
+        if col_letters[-1] != PuzzleBoard._BLANK:
+            col_indices.append((start, index+1))
+
+        if self.target_board:
+            target_col = [self.target_board[row_num][j] for row_num in range(self.num_rows)]
+
+        for start, end in col_indices:
+            word = "".join(col_letters[start:end])
+            if word.upper() not in words:
+                if self.target_board:
+                    target_word = "".join(target_col[start:end])
+                    if PuzzleBoard._BLANK not in target_word:
+                        continue
+                return False
+
+        return True
+
     def is_puzzle_solved(self):
         # This should be used to check if the previous changes invalidated puzzle
 
         for change in self.change_history:
             changed_row, changed_col = change
-            if not self.check_words_ok(changed_row, changed_col):
+            if not self.check_words_ok2(changed_row, changed_col):
                 return False
         self.change_history = []
         return True
 
-    def solve_puzzle_randomly(self):
-        # Randomly makes changes until puzzle is valid
-
-        for i in range(1000000):
-            if self.validate_board():
-                return (i)
-            else:
-                self.mutate_one_square()
-        return "Could not solve"
 
 
 if __name__ == "__main__":
     puzzle = [['-', 'R', 'A', 'D'], ['L', 'A', 'T', 'E'], ['E', 'T', 'O', 'N'], ['D', 'A', 'P', '-']]
-    count=0
 
 
-    lengths = [0 for i in range(20)]
-
-    for word,v in words.items():
-        length = len(word)
-        if length==20:continue
-        lengths[length-1]+=1
-
-    for i in range(20):
-
-        W = lengths[i]
-        n = i+1
-        P = 26**(n**2)
-        V = W**(2*n)/(26**(n**2))
-        try:
-            D = V/P
-            print('n = %d' % n)
-            print('P = %e' % P)
-            print('V = %e' % V)
-            print('V/P = %e' % D)
-            print("\n")
-        except:
-            print(i+1)
 
 

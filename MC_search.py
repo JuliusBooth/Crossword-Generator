@@ -23,8 +23,8 @@ def monte_carlo_search(root_puzzle, depth=1, breadth=1000, iterations=1000, chan
 
         puzzles = []
 
-        if not root_puzzle.validate_board():
-            raise("Root Puzzle Invalid")
+        #if not root_puzzle.validate_board():
+         #   raise("Root Puzzle Invalid")
 
         if change_method == "network":
             cloned_puzzles = [copy.deepcopy(root_puzzle) for i in range(breadth)]
@@ -96,41 +96,9 @@ def sample(x):
 
 if __name__ == "__main__":
 
-
-    puzzle = PuzzleBoard(file_name="Valid_Boards/4x4/Board#1012")
-    from Model import Network
-
-    x = np.zeros((1, 4, 4, 26))
-
-    n = Network(restore="saved_model")
-    n.run_network()
-
-    x[0,:,:,:] = puzzle.get_matrix()[:, :, :26]
-    p = n.predict(x)[0]
-
-    print(p)
-    p = np.reshape(p, (16,26))
-    import pandas as pd
-
-    df = pd.DataFrame(p)
-    print(df)
-    df.to_csv("foo.csv")
-
-    raise
-
-
-    board = [['-', 'G', 'R', 'O', 'S'], ['B', 'R', 'E', 'D', 'E'], ['R', 'E', 'M', 'O', 'P'],
-             ['A', 'C', 'O', 'R', 'N'], ['T', 'O', 'P', 'S', '-']]
-    board = [['S', 'P', 'A', 'E', 'R', '-', 'C', 'A', 'M', 'E', 'L', '-', 'U', 'R', 'N'], ['E', 'A', 'R', 'N', 'A', '-', 'I', 'N', 'A', 'G', 'E', '-', 'N', 'I', 'O'], ['C', 'H', 'I', 'C', 'K', 'E', 'N', 'K', 'I', 'E', 'V', '-', 'S', 'S', 'P'], ['S', 'O', 'D', 'O', '-', 'W', 'E', 'E', 'N', '-', 'E', 'A', 'U', 'D', 'E'], ['-', '-', '-', 'R', 'O', 'A', 'M', '-', 'S', 'T', 'E', 'R', 'N', '-', '-'], ['-', 'V', 'I', 'E', 'N', 'N', 'A', 'S', 'A', 'U', 'S', 'A', 'G', 'E', 'S'], ['S', 'E', 'N', 'S', 'O', '-', '-', 'B', 'I', 'D', '-', 'B', 'H', 'A', 'T'], ['T', 'R', 'F', '-', 'S', 'A', 'R', 'A', 'L', 'E', 'E', '-', 'E', 'T', 'R'], ['A', 'V', 'I', 'M', '-', 'G', 'E', 'L', '-', '-', 'D', 'A', 'R', 'I', 'N'], ['B', 'E', 'E', 'F', 'W', 'E', 'L', 'L', 'I', 'N', 'G', 'T', 'O', 'N', '-'], ['-', '-', 'L', 'A', 'H', 'D', 'I', '-', 'N', 'E', 'E', 'L', '-', '-', '-'], ['H', 'Y', 'D', 'R', 'O', '-', 'A', 'U', 'T', 'O', '-', 'A', 'G', 'L', 'I'], ['O', 'R', 'F', '-', 'L', 'O', 'N', 'D', 'O', 'N', 'B', 'R', 'O', 'I', 'L'], ['T', 'H', 'L', '-', 'E', 'P', 'C', 'O', 'T', '-', 'A', 'G', 'L', 'E', 'E'], ['T', 'O', 'Y', '-', 'S', 'E', 'E', 'N', 'O', '-', 'E', 'E', 'I', 'N', 'S']]
-
-    #puzzle = PuzzleBoard(board)
-
-    puzzle = PuzzleBoard(file_name="Valid_Boards/5x5_v1.txt")
+    puzzle = PuzzleBoard(file_name="Valid_Boards/15x15_v1.txt", target_file_name="Valid_Boards/15x15_v1_target.txt")
     print(puzzle)
-    for i in range(29,2000):
-        puzzle = monte_carlo_search(puzzle, depth=3, iterations=1000000, breadth=10, choice_method="random", change_method="random")
-        file_name = "Valid_Boards/5x5/Board#" + str(i)
-        puzzle.write_to_txt(file_name)
-    print(puzzle)
+
+    puzzle = monte_carlo_search(puzzle, depth=3, iterations=1000000, breadth=10, choice_method="random", change_method="random")
 
 
