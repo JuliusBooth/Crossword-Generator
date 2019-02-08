@@ -56,7 +56,7 @@ class PuzzleBoard:
                 board_string += letter
                 board_string += " "
             board_string += "\n"
-        print(self.board)
+        #print(self.board)
         return board_string
 
     def read_from_txt(self, file_name):

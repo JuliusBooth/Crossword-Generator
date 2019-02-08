@@ -99,6 +99,6 @@ if __name__ == "__main__":
     puzzle = PuzzleBoard(file_name="Valid_Boards/15x15_v1.txt", target_file_name="Valid_Boards/15x15_v1_target.txt")
     print(puzzle)
 
-    puzzle = monte_carlo_search(puzzle, depth=3, iterations=1000000, breadth=10, choice_method="random", change_method="random")
+    puzzle = monte_carlo_search(puzzle, depth=2, iterations=1000000, breadth=10, choice_method="random", change_method="random")
 
 
