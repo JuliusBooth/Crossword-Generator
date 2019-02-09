@@ -7,8 +7,11 @@ with open(DICTIONARY, "r") as read_file:
     words = dict([(k.upper(),v) for (k,v) in words.items()])
 
 search_term = "".upper()
-indices=[(1,"H"), (4,"M")]
-word_length = 6
+indices=[(3,"D"), (6,"M"), (8,"E")]
+indices=[(3,"A"), (5,"S")]
+#indices=[]
+#indices = []
+word_length = 7
 
 for word, v in words.items():
     length = len(word)

@@ -2,7 +2,8 @@ import json
 import random
 import csv
 import numpy as np
-
+import random
+from math import exp, log
 
 #DICTIONARY = 'Dictionaries/words_dictionary.json'
 DICTIONARY = "Dictionaries/master_dictionary.json"
@@ -22,7 +23,7 @@ class PuzzleBoard:
                         'K': 5, 'J': 8, 'M': 3, 'L': 1, 'O': 1, 'N': 1, 'Q': 10, 'P': 3, 'S': 1,
                             'R': 1, 'U': 1, 'T': 1, 'W': 4, 'V': 4, 'Y': 4, 'X': 8, 'Z': 10, _BLANK: 0}
 
-    def __init__(self, puzzle=None, file_name=None, target_file_name=None):
+    def __init__(self, puzzle=None, file_name=None, target_file_name=None, total_iterations=1000):
 
         if puzzle:
             self.board = puzzle
@@ -46,6 +47,8 @@ class PuzzleBoard:
         self.change_history = []
         self.board_value = self.get_board_value()
         self.matrix = self.get_matrix()
+        self.total_iterations = total_iterations
+        self.iteration = 1
 
     def __str__(self):
         # String representation of board
@@ -136,7 +139,7 @@ class PuzzleBoard:
             if old_letter == PuzzleBoard._BLANK:
                 continue
             if self.target_board:
-                if old_letter == self.target_board[square_row][square_column]:
+                if old_letter == self.target_board[square_row][square_column] and self.is_annealed(old_letter):
                     continue
             new_letter = PuzzleBoard._letters[random.randint(0, PuzzleBoard._num_letters-1)]
             self.board[square_row][square_column] = new_letter
@@ -144,25 +147,18 @@ class PuzzleBoard:
             self.change_history.append((square_row, square_column))
             break
 
+    def is_annealed(self, letter):
+        energy = PuzzleBoard._letter_values[letter]**2
+        temperature = self.total_iterations/self.iteration
+        k = 20
+        annealing_likelihood = 1 - exp(-energy*k/temperature)
+        if random.random() < annealing_likelihood:
+            return True
+        else:
+            return False
+
     def get_letter(self, row, col):
         return self.board[row][col]
-
-    def remove_constraint(self, i, j, direction):
-        if direction == "horizontal":
-            if j < self.num_cols - 1:
-                if self.target_board[i][j+1] != PuzzleBoard._BLANK:
-                    return True
-            else:
-                if self.target_board[i][j-1] != PuzzleBoard._BLANK:
-                    return True
-        else:
-            if i < self.num_rows - 1:
-                if self.target_board[i+1][j] != PuzzleBoard._BLANK:
-                    return True
-            else:
-                if self.target_board[i-1][j] != PuzzleBoard._BLANK:
-                    return True
-        return False
 
     def check_words_ok(self, i, j):
         # Returns True if the two words that use cell (i, j) are legitimate
@@ -198,7 +194,7 @@ class PuzzleBoard:
         return True
 
     def check_words_ok2(self, i, j):
-        # Returns True if the two words that use cell (i, j) are legitimate
+        # Returns True if the two words that use cell (i, j) are legitimate UNLESS the word is a target word
         # Returns False otherwise
         # TODO: This could be made more elegant and possibly faster
         # (doesn't need to check the whole row and column just between BLANKS)
