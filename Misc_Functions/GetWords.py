@@ -8,10 +8,10 @@ with open(DICTIONARY, "r") as read_file:
 
 search_term = "".upper()
 indices=[(3,"D"), (6,"M"), (8,"E")]
-indices=[(3,"A"), (5,"S")]
+indices=[(1,"H"), (4,"M")]
 #indices=[]
 #indices = []
-word_length = 7
+word_length = 6
 
 for word, v in words.items():
     length = len(word)

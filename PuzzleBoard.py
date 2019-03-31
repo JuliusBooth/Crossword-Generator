@@ -23,7 +23,7 @@ class PuzzleBoard:
                         'K': 5, 'J': 8, 'M': 3, 'L': 1, 'O': 1, 'N': 1, 'Q': 10, 'P': 3, 'S': 1,
                             'R': 1, 'U': 1, 'T': 1, 'W': 4, 'V': 4, 'Y': 4, 'X': 8, 'Z': 10, _BLANK: 0}
 
-    def __init__(self, puzzle=None, file_name=None, target_file_name=None, total_iterations=1000):
+    def __init__(self, puzzle=None, file_name=None, target_file_name=None, total_iterations=1000, override_fail=False):
 
         if puzzle:
             self.board = puzzle
@@ -41,12 +41,11 @@ class PuzzleBoard:
         self.num_cols = len(self.board[0])
         self.num_letters = self.num_rows * self.num_cols
 
-        if not self.validate_board():
+        if not self.validate_board() and not override_fail:
             raise("Initiating with invalid puzzle!")
 
         self.change_history = []
         self.board_value = self.get_board_value()
-        self.matrix = self.get_matrix()
         self.total_iterations = total_iterations
         self.iteration = 1
 
@@ -74,14 +73,6 @@ class PuzzleBoard:
         with open(file_name, 'w') as csv_file:
             csv_writer = csv.writer(csv_file)
             csv_writer.writerows(self.board)
-
-    def get_matrix(self):
-        matrix = np.zeros((self.num_rows, self.num_cols, 27))
-        for i, j in self.iterate_board():
-            letter = self.get_letter(i, j)
-            index = PuzzleBoard._letters.index(letter)
-            matrix[i, j, index] = 1
-        return matrix
 
     def iterate_board(self):
         # Creates iterator of all board positions
@@ -148,6 +139,9 @@ class PuzzleBoard:
             break
 
     def is_annealed(self, letter):
+        #Freeze after halfway mark
+        if self.iteration > self.total_iterations/2:
+            return True
         energy = PuzzleBoard._letter_values[letter]**2
         temperature = self.total_iterations/self.iteration
         k = 20
@@ -164,6 +158,7 @@ class PuzzleBoard:
         # Returns True if the two words that use cell (i, j) are legitimate
         # Returns False otherwise
         # TODO: This could be made more elegant and possibly faster
+        # TODO: get rid of one of the check_words_ok functions
         # (doesn't need to check the whole row and column just between BLANKS)
 
         if self.get_letter(i, j) == PuzzleBoard._BLANK:
