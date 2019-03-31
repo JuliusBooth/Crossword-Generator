@@ -89,7 +89,6 @@ def fit_words_in(puzzle_frame):
     for i, j in puzzle_frame.iterate_board():
         if puzzle_frame.get_letter(i, j) != PuzzleBoard._BLANK:
             puzzle_frame.board[i][j] = "-"
-    #puzzle_frame = recurse(puzzle_frame,word_indices)
 
     for index,(start, end, direction) in enumerate(word_indices):
 
@@ -123,14 +122,18 @@ def generate_targets(puzzle_skeleton, number_of_targets):
 
     while len(targets) < number_of_targets:
         puzzle_frame = copy.deepcopy(puzzle)
-
+        print(puzzle_frame)
         generated_target = fit_words_in(puzzle_frame)
-        print(generated_target)
         if generated_target:
             targets.append(generated_target)
+
+    if number_of_targets == 1:
+        return targets[0]
     for i, target_puzzle in enumerate(targets):
         file_name = "Valid_Boards/Targets/15x15_generated_target_" + str(i+14) + ".txt"
         target_puzzle.write_to_txt(file_name)
     return targets
 
-generate_targets("Valid_Boards/15x15_v1_target.txt", 2)
+
+
+#generate_targets("Valid_Boards/15x15_v1_target.txt", 2)

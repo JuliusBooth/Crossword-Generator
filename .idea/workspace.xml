@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4bd5259-fd2b-4c2e-8a30-98c54755f3a8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Puzzle_Images/15x15_target2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Puzzle_Images/15x15fail1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Puzzle_Images/15x15fail2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Puzzle_Images/3x3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Puzzle_Images/3x3_blank.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GenerateTargetBoards.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Valid_Boards/Drawing/3x3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Valid_Boards/failed_boards/15x15_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WriteToFile.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Misc_Functions/GetWords.py" afterPath="$PROJECT_DIR$/Misc_Functions/GetWords.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Misc_Functions/TextToImage.py" afterPath="$PROJECT_DIR$/Misc_Functions/TextToImage.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GenerateNewBoard.py" afterPath="$PROJECT_DIR$/GenerateNewBoard.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GenerateTargetBoards.py" afterPath="$PROJECT_DIR$/GenerateTargetBoards.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PuzzleBoard.py" afterPath="$PROJECT_DIR$/PuzzleBoard.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Valid_Boards/15x15_v1_target2.txt" afterPath="$PROJECT_DIR$/Valid_Boards/15x15_v1_target2.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,23 +16,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PuzzleBoard.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PuzzleBoard.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="27" lean-forward="false" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GenerateTargetBoards.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GenerateTargetBoards.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1017">
-              <caret line="134" column="0" lean-forward="true" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+            <state relative-caret-position="303">
+              <caret line="124" column="27" lean-forward="true" selection-start-line="124" selection-start-column="27" selection-end-line="124" selection-end-column="27" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -51,78 +28,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="15x15_generated_target_7.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Valid_Boards/Targets/15x15_generated_target_7.txt">
+      <file leaf-file-name="GenerateNewBoard.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GenerateNewBoard.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="222">
+              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="15x15_generated_target_10.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Valid_Boards/Targets/15x15_generated_target_10.txt">
+      <file leaf-file-name="PuzzleBoard.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PuzzleBoard.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="15x15_generated_target_12.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Valid_Boards/Targets/15x15_generated_target_12.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="15x15_generated_target_13.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Valid_Boards/Targets/15x15_generated_target_13.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="15x15_generated_target_11.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Valid_Boards/Targets/15x15_generated_target_11.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="15x15_generated_target_0.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Valid_Boards/Targets/15x15_generated_target_0.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="1382">
+              <caret line="239" column="0" lean-forward="true" selection-start-line="239" selection-start-column="0" selection-end-line="239" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="15x15_generated_target_1.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Valid_Boards/Targets/15x15_generated_target_1.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="15x15_generated_target_2.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Valid_Boards/Targets/15x15_generated_target_2.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -159,12 +90,15 @@
       <find>-</find>
       <find>print</find>
       <find>remove</find>
-      <find>is_pu</find>
       <find>remove_</find>
       <find>letters</find>
       <find>is_ann</find>
       <find>get_matr</find>
       <find>self</find>
+      <find>random</find>
+      <find>words_ok2</find>
+      <find>is_pu</find>
+      <find>british</find>
     </findStrings>
     <replaceStrings>
       <replace>puzzle</replace>
@@ -204,15 +138,15 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Valid_Boards/15x15_v1_target.txt" />
         <option value="$PROJECT_DIR$/MC_search.py" />
-        <option value="$PROJECT_DIR$/GenerateNewBoard.py" />
         <option value="$PROJECT_DIR$/Misc_Functions/GetWords.py" />
         <option value="$PROJECT_DIR$/Misc_Functions/WriteToFile.py" />
         <option value="$PROJECT_DIR$/WriteToFile.py" />
         <option value="$PROJECT_DIR$/Valid_Boards/15x15_v1_target2.txt" />
         <option value="$PROJECT_DIR$/Valid_Boards/Drawing/3x3.txt" />
         <option value="$PROJECT_DIR$/Misc_Functions/TextToImage.py" />
-        <option value="$PROJECT_DIR$/PuzzleBoard.py" />
         <option value="$PROJECT_DIR$/GenerateTargetBoards.py" />
+        <option value="$PROJECT_DIR$/PuzzleBoard.py" />
+        <option value="$PROJECT_DIR$/GenerateNewBoard.py" />
       </list>
     </option>
   </component>
@@ -363,7 +297,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.GenerateTargetBoards">
+  <component name="RunManager" selected="Python.GenerateNewBoard">
     <configuration default="false" name="GetWords" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -546,11 +480,11 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.GenerateTargetBoards" />
-        <item index="1" class="java.lang.String" itemvalue="Python.TextToImage (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Python.WriteToFile" />
-        <item index="3" class="java.lang.String" itemvalue="Python.GetWords" />
-        <item index="4" class="java.lang.String" itemvalue="Python.GenerateNewBoard" />
+        <item index="0" class="java.lang.String" itemvalue="Python.GenerateNewBoard" />
+        <item index="1" class="java.lang.String" itemvalue="Python.GenerateTargetBoards" />
+        <item index="2" class="java.lang.String" itemvalue="Python.TextToImage (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.WriteToFile" />
+        <item index="4" class="java.lang.String" itemvalue="Python.GetWords" />
       </list>
     </recent_temporary>
   </component>
@@ -571,10 +505,11 @@
     <frame x="0" y="23" width="1259" height="738" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24305004" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25143796" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24746193" sideWeight="0.5022779" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3961136" sideWeight="0.4977221" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33950618" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34567901" sideWeight="0.4977221" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -587,7 +522,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -843,24 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Generate_Boards.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GenerateNewBoard.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="42" column="44" lean-forward="true" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="78" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Misc_Functions/GetWords.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-37">
@@ -895,16 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PuzzleBoard.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="27" lean-forward="false" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Valid_Boards/Targets/15x15_generated_target_2.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -921,33 +827,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Valid_Boards/Targets/15x15_generated_target_1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Valid_Boards/Targets/15x15_generated_target_11.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GenerateTargetBoards.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1017">
-          <caret line="134" column="0" lean-forward="true" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Valid_Boards/Targets/15x15_generated_target_7.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -976,6 +856,60 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Valid_Boards/Targets/15x15_generated_target_7.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Generate_Boards.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Valid_Boards/Targets/15x15_generated_target_1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PuzzleBoard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1382">
+          <caret line="239" column="0" lean-forward="true" selection-start-line="239" selection-start-column="0" selection-end-line="239" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GenerateTargetBoards.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="124" column="27" lean-forward="true" selection-start-line="124" selection-start-column="27" selection-end-line="124" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GenerateNewBoard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

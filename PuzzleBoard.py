@@ -1,7 +1,5 @@
 import json
-import random
 import csv
-import numpy as np
 import random
 from math import exp, log
 
@@ -23,7 +21,7 @@ class PuzzleBoard:
                         'K': 5, 'J': 8, 'M': 3, 'L': 1, 'O': 1, 'N': 1, 'Q': 10, 'P': 3, 'S': 1,
                             'R': 1, 'U': 1, 'T': 1, 'W': 4, 'V': 4, 'Y': 4, 'X': 8, 'Z': 10, _BLANK: 0}
 
-    def __init__(self, puzzle=None, file_name=None, target_file_name=None, total_iterations=1000, override_fail=False):
+    def __init__(self, puzzle=None, target_puzzle=None, file_name=None, target_file_name=None, total_iterations=1000, override_fail=False):
 
         if puzzle:
             self.board = puzzle
@@ -32,7 +30,9 @@ class PuzzleBoard:
         else:
             raise("No starting board supplied")
 
-        if target_file_name:
+        if target_puzzle:
+            self.target_board = target_puzzle
+        elif target_file_name:
             self.target_board = self.read_from_txt(target_file_name)
         else:
             self.target_board = None
