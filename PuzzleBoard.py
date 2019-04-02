@@ -139,8 +139,8 @@ class PuzzleBoard:
             break
 
     def is_annealed(self, letter):
-        #Freeze after halfway mark
-        if self.iteration > self.total_iterations/2:
+        #Freeze after quarter mark
+        if self.iteration > self.total_iterations/4:
             return True
         energy = PuzzleBoard._letter_values[letter]**2
         temperature = self.total_iterations/self.iteration

@@ -4,7 +4,7 @@ import logging
 import multiprocessing as mp
 import argparse
 from GenerateTargetBoards import generate_targets
-
+import random
 
 def generate_new_board(root_puzzle, depth=1):
     # At each iteration we copy the root_puzzle breadth times
@@ -46,11 +46,11 @@ def run_parallel(func, num_processes, **kwargs):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Puzzle Generation Options.')
-    parser.add_argument('-p', '--processes', default=1,
+    parser.add_argument('-p', '--processes', default=1, type=int,
                         help="number of processes/puzzles made")
-    parser.add_argument('-d', '--depth', default=2,
+    parser.add_argument('-d', '--depth', default=2, type=int,
                         help="steps per iteration (depth)")
-    parser.add_argument('-i', '--iterations', default=1000,
+    parser.add_argument('-i', '--iterations', default=1000, type=int,
                         help="iterations")
     puzzle_options = parser.parse_args()
 
@@ -72,6 +72,8 @@ if __name__ == "__main__":
     for puzzle_num, puzzle in enumerate(new_puzzles):
         print(puzzle)
         print(puzzle.board)
+        print(puzzle.validate_board())
         if puzzle.validate_board():
-            file_name = "Valid_Boards/testing/" + SIZE + "_Depth" + str(DEPTH) + "_Iterations" + str(ITERATIONS) + "_#" + str(puzzle_num)
+            random_addon = str(random.randint(1,1000))
+            file_name = "Valid_Boards/testing/" + SIZE + "_Depth" + str(DEPTH) + "_Iterations" + str(ITERATIONS) + "_#" + str(puzzle_num) + "_" + random_addon
             puzzle.write_to_txt(file_name)

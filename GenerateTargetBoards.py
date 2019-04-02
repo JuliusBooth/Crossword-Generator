@@ -122,12 +122,12 @@ def generate_targets(puzzle_skeleton, number_of_targets):
 
     while len(targets) < number_of_targets:
         puzzle_frame = copy.deepcopy(puzzle)
-        print(puzzle_frame)
         generated_target = fit_words_in(puzzle_frame)
         if generated_target:
             targets.append(generated_target)
 
     if number_of_targets == 1:
+        print(targets[0])
         return targets[0]
     for i, target_puzzle in enumerate(targets):
         file_name = "Valid_Boards/Targets/15x15_generated_target_" + str(i+14) + ".txt"
