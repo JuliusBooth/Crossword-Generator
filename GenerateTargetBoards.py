@@ -112,7 +112,7 @@ def fit_words_in(puzzle_frame):
 
 
 def generate_targets(puzzle_skeleton, number_of_targets):
-    puzzle = PuzzleBoard(file_name=puzzle_skeleton)
+    puzzle = PuzzleBoard(file_name=puzzle_skeleton, override_fail=True)
 
     for i, j in puzzle.iterate_board():
         if puzzle.get_letter(i, j) != PuzzleBoard._BLANK:

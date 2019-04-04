@@ -107,6 +107,38 @@ class PuzzleBoard:
         old_val = PuzzleBoard._letter_values[old_letter]/self.num_letters
         self.board_value += (new_val - old_val)
 
+    def get_words(self):
+        words = []
+        for i in range(self.num_rows):
+            # Check the row
+
+            start = 0
+            row_letters = [self.get_letter(i, col_num) for col_num in range(self.num_cols)]
+            for index, letter in enumerate(row_letters):
+                if letter == PuzzleBoard._BLANK:
+                    word = "".join(row_letters[start:index])
+                    if word != PuzzleBoard._BLANK and len(word) > 0:
+                        words.append(word)
+                    start = index + 1
+            if row_letters[-1] != PuzzleBoard._BLANK:
+                word = "".join(row_letters[start:])
+                words.append(word)
+
+        for j in range(self.num_cols):
+            # Check the column
+            start = 0
+            col_letters = [self.get_letter(row_num, j) for row_num in range(self.num_rows)]
+            for index, letter in enumerate(col_letters):
+                if letter == PuzzleBoard._BLANK:
+                    word = "".join(col_letters[start:index])
+                    if word != PuzzleBoard._BLANK and len(word) > 0 :
+                        words.append(word)
+                    start = index + 1
+            if col_letters[-1] != PuzzleBoard._BLANK:
+                word = "".join(col_letters[start:])
+                words.append(word)
+        return words
+
     def change_square(self, i, j, k):
         #MIGHT NEED TO ADD TARGET_FILE STUFF
         # Change one square of your choice
