@@ -1,0 +1,15 @@
+A,V,I,V,-,-,P,S,A,T,-,C,C,C,X
+C,I,T,I,-,A,R,I,S,E,-,H,A,Z,E
+D,N,E,V,-,R,O,G,E,R,-,A,N,E,N
+C,O,M,I,N,G,T,O,A,M,E,R,I,C,A
+-,-,-,S,O,Y,O,U,-,-,L,G,T,H,-
+C,L,A,E,S,-,-,R,U,T,L,E,-,-,-
+D,A,N,C,E,R,I,N,T,H,E,D,A,R,K
+E,M,I,T,-,A,N,E,A,R,-,A,L,E,E
+F,E,L,I,C,I,T,Y,H,U,F,F,M,A,N
+-,-,-,O,N,L,O,W,-,-,A,F,A,L,L
+-,B,A,N,E,-,-,E,S,P,I,A,-,-,-
+P,O,L,I,T,I,C,A,L,A,N,I,M,A,L
+A,X,E,S,-,D,A,V,I,S,-,R,A,Z,A
+N,E,X,T,-,E,L,E,C,T,-,E,L,I,Z
+G,R,A,S,-,S,I,R,E,-,-,S,I,Z,E
