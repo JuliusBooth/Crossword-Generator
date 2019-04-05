@@ -10,6 +10,15 @@ with open(DICTIONARY, "r") as read_file:
     words = dict([(k.upper(),v) for (k,v) in words.items()])
     # Don't store words in PuzzleBoard or it's too slow using copy.deepcopy
 
+    with open("Dictionaries/dbcluesunique.txt") as csv_file:
+        csv_reader = csv.reader(csv_file)
+        for line in csv_reader:
+            word = line[0].upper()
+            appearance_count = int(line[1])
+            if len(word) <= 5 and appearance_count <= 5:
+                words.pop(word, None)
+    #x_l_words = [k for (k, v) in words.items() if len(k) == x]
+
 
 class PuzzleBoard:
 

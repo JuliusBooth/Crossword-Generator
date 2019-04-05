@@ -50,7 +50,7 @@ if __name__ == "__main__":
                         help="number of processes/puzzles made")
     parser.add_argument('-d', '--depth', default=2, type=int,
                         help="steps per iteration (depth)")
-    parser.add_argument('-i', '--iterations', default=1000, type=int,
+    parser.add_argument('-i', '--iterations', default=100000, type=int,
                         help="iterations")
     puzzle_options = parser.parse_args()
 
@@ -61,7 +61,7 @@ if __name__ == "__main__":
     ITERATIONS = puzzle_options.iterations
     SIZE = "15x15"
     NUM_PROCESSES = puzzle_options.processes
-    TARGET_NUM = 2
+    TARGET_NUM = 1
     TARGET = generate_targets("Valid_Boards/15x15_v" + str(TARGET_NUM) + "_target.txt", 1).board
     logger.info(TARGET)
     starting_puzzle = PuzzleBoard(file_name="Valid_Boards/15x15_v" + str(TARGET_NUM) + ".txt",
