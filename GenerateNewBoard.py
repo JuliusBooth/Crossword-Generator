@@ -61,10 +61,10 @@ if __name__ == "__main__":
     ITERATIONS = puzzle_options.iterations
     SIZE = "15x15"
     NUM_PROCESSES = puzzle_options.processes
-
-    TARGET = generate_targets("Valid_Boards/15x15_v2_target.txt", 1).board
+    TARGET_NUM = 2
+    TARGET = generate_targets("Valid_Boards/15x15_v" + str(TARGET_NUM) + "_target.txt", 1).board
     logger.info(TARGET)
-    starting_puzzle = PuzzleBoard(file_name="Valid_Boards/15x15_v2.txt",
+    starting_puzzle = PuzzleBoard(file_name="Valid_Boards/15x15_v" + str(TARGET_NUM) + ".txt",
                                   target_puzzle=TARGET,
                                   total_iterations=ITERATIONS)
 
@@ -75,5 +75,5 @@ if __name__ == "__main__":
         print(puzzle.validate_board())
         if puzzle.validate_board():
             random_addon = str(random.randint(1,1000))
-            file_name = "Valid_Boards/testing/" + SIZE + "_Depth" + str(DEPTH) + "_Iterations" + str(ITERATIONS) + "_#" + str(puzzle_num) + "_" + random_addon
+            file_name = "Valid_Boards/testing/" + SIZE + "_v" + str(TARGET_NUM) + "_Depth" + str(DEPTH) + "_Iterations" + str(ITERATIONS) + "_#" + str(puzzle_num) + "_" + random_addon
             puzzle.write_to_txt(file_name)
