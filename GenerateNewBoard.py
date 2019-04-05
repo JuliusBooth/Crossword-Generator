@@ -62,9 +62,9 @@ if __name__ == "__main__":
     SIZE = "15x15"
     NUM_PROCESSES = puzzle_options.processes
 
-    TARGET = generate_targets("Valid_Boards/15x15_v3_target.txt", 1).board
+    TARGET = generate_targets("Valid_Boards/15x15_v2_target.txt", 1).board
     logger.info(TARGET)
-    starting_puzzle = PuzzleBoard(file_name="Valid_Boards/15x15_v3.txt",
+    starting_puzzle = PuzzleBoard(file_name="Valid_Boards/15x15_v2.txt",
                                   target_puzzle=TARGET,
                                   total_iterations=ITERATIONS)
 

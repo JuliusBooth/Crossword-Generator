@@ -1,5 +1,5 @@
 import csv
-
+import os
 from PIL import Image, ImageDraw, ImageFont
 
 def save_image(input_file, output_file):
@@ -59,10 +59,18 @@ def save_image(input_file, output_file):
     img.save(output_file)
 
 #choose .txt file to read in
-#input_file = "../Valid_Boards/failed_boards/15x15_1.txt"
-input_file = "../Valid_Boards/15x15_v1_target2.txt"
-input_file = "../Valid_Boards/Drawing/3x3.txt"
-output_file = "../Puzzle_Images/15x15_target2.png"
-output_file = "../Puzzle_Images/3x3.png"
+input_name_prefix = "../Valid_Boards/testing/"
+for filename in os.listdir(input_name_prefix):
+    output_name_prefix = "../Puzzle_Images/Solved/"
+    input_file = input_name_prefix + filename
+    output_file = output_name_prefix + filename + ".png"
+    if output_name_prefix not in os.listdir(output_name_prefix):
+        save_image(input_file, output_file)
+
+raise
+input_file = "../Valid_Boards/testing/15x15_Depth2_Iterations7500000_#6_650"
+input_file = "../Valid_Boards/15x15_v3.txt"
+output_file = "../Puzzle_Images/15x15_v3.png"
+
 save_image(input_file,output_file)
 
